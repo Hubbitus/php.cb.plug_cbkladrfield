@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cbinstall version="1.0.0" type="plugin" group="user">
+	<name>CB Kladr Field</name>
+	<author>Pavel Alexeev (aka Pahan-Hubbitus)</author>
+	<creationDate>2013-12-18</creationDate>
+	<copyright>(C) 2013 Hubbitus</copyright>
+	<license>Apache v2 License</license>
+	<authorEmail>pahan@hubbitus.info</authorEmail>
+	<authorUrl>http://hubbitus.info</authorUrl>
+	<version>1.8.1</version>
+	<description>
+		A Community Builder field plugin that helps add Address on KLADR info based on service http://kladr-api.ru/ api
+	</description>
+	<files>
+		<filename plugin="cb.kladrfield">cb.kladrfield.php</filename>
+		<filename plugin="cb.kladrfield">css/example4.css</filename>
+		<filename plugin="cb.kladrfield">css/jquery.kladr.min.css</filename>
+		<filename plugin="cb.kladrfield">css/jquery.kladr.images/spinner.png</filename>
+		<filename plugin="cb.kladrfield">js/kladr-init.js</filename>
+		<filename plugin="cb.kladrfield">js/jquery-1.10.2.min.js</filename>
+		<filename plugin="cb.kladrfield">js/jquery.kladr.js</filename>
+		<filename plugin="cb.kladrfield">js/jquery.kladr.min.js</filename>
+		<filename plugin="cb.kladrfield">views/template.html</filename>
+		<filename plugin="cb.kladrfield">views/example4.html</filename>
+		<filename plugin="cb.kladrfield">LICENSE</filename>
+		<filename>index.html</filename>
+	</files>
+	<fieldtypes>
+		<field type="kladrfield" label="KLADR Field">
+			<data name="" nametype="namesuffix" type="sql:varchar(255)" null="true" default="NULL" strict="false" />
+			<params description="The KLADR field type plugin adds a 'KLADR Field' to the available list of CB fields for entering Russia address data. Based on cloud service http://kladr-api.ru/.">
+				<fieldset label="Enabled address parts" description="Choose desired parts of address. City always enabled as base.">
+					<param name="partStreet" type="radio" default="show" label="Street" description="Show Street part or not">
+						<option value="show">Display</option>
+						<option value="hide">No</option>
+					</param>
+					<if type="showhide" name="partStreet" operator="=" value="show" valuetype="const:text">
+						<param name="partBuilding" type="radio" default="show" label="Building" description="Show Building part or not">
+							<option value="show">Display</option>
+							<option value="hide">No</option>
+						</param>
+						<if type="showhide" name="partBuilding" operator="=" value="show" valuetype="const:text">
+							<param name="partSubBuilding" type="radio" default="show" label="SubBuilding" description="Show SubBuilding part or not">
+								<option value="show">Display</option>
+								<option value="hide">No</option>
+							</param>
+						</if>
+					</if>
+				</fieldset>
+				<fieldset label="Visualisation Options" description="When you fill your address there may be present also Map and full address string representation">
+					<param name="showMap" type="radio" default="show" label="Show map" description="Whether to display entered address on map or not.">
+						<option value="show">Display</option>
+						<option value="hide">No</option>
+					</param>
+					<param name="showObjectFullInfo" type="radio" default="show" label="Show detailed information about chosen object." description="Show detailed information about chosen object like kladr codes and types. Useful for debug.">
+						<option value="show">Display</option>
+						<option value="hide">No</option>
+					</param>
+				</fieldset>
+			</params>
+		</field>
+	</fieldtypes>
+	<fieldsparams>
+	</fieldsparams>
+	<params>
+	</params>
+	<install>
+	</install>
+	<uninstall>
+	</uninstall>
+	<database>
+	</database>
+</cbinstall>

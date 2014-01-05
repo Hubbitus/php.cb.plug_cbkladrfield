@@ -1,0 +1,8 @@
+
+rm -rf plug_cbkladrfield
+
+cp -pr /home/pasha/Projects/web/thevistas.biz/public_html/components/com_comprofiler/plugin/user/plug_cbkladrfield .
+
+pushd plug_cbkladrfield
+zip -9r ../plug_cbkladrfield.zip *
+popd
